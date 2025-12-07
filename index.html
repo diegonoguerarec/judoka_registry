@@ -6,7 +6,52 @@
     <title>Judoka Register</title>
 </head>
 <body>
-    <p>Hello world</p>
+    <h1>Judoka Registry</h1>
+
+    <div id="form">
+        <h2>Judoka Information</h2>
+        <label>Gender</label> 
+            Male <input type="radio" name="gender" value="male"> 
+            Female <input type="radio" name="gender" value="female"> 
+        <br>
+        <label>Name</label> <input type="text"> <br>
+        <label>Lastname</label> <input type="text"> <br>
+        <label>Country</label> 
+            <select name="country" id="country">
+                <option value="PAR">Paraguay (PAR)</option>
+                <option value="ARG">Argentina (ARG)</option>
+                <option value="BRA">Brazil (BRA)</option>
+                <option value="URU">Uruguay (URU)</option>
+                <option value="CHI">Chile (CHI)</option>
+            </select>
+        <br>
+        <label>Weight class</label> 
+            <select name="weight" id="weight">
+                <!-- Male weight classes -->
+                <option value="60">-60Kg.</option>
+                <option value="66">-66Kg.</option>
+                <option value="73">-73Kg.</option>
+                <option value="81">-81Kg.</option>
+                <option value="90">-90Kg.</option>
+                <option value="100">-100Kg.</option>
+                <option value="+100">+100Kg.</option>
+
+                <!-- Women weight classes -->
+                <option value="48">-48Kg.</option>
+                <option value="52">-52Kg.</option>
+                <option value="57">-57Kg.</option>
+                <option value="63">-63Kg.</option>
+                <option value="70">-70Kg.</option>
+                <option value="78">-78Kg.</option>
+                <option value="+78">+78Kg.</option>
+            </select>
+        <br>
+        <label>Birthdate</label> <input type="date"> <br>
+        <button>Save</button>
+    </div>
+
+    <div id="view"></div>
+
     <script src="js/index.js""></script>
 </body>
 </html>
