@@ -11,11 +11,11 @@
     <div id="form">
         <h2>Judoka Information</h2>
         <label>Gender</label> 
-            Male <input type="radio" name="gender" value="male"> 
-            Female <input type="radio" name="gender" value="female"> 
+            Male <input type="radio" name="gender" value="male" id="maleRadio"> 
+            Female <input type="radio" name="gender" value="female" id="femaleRadio"> 
         <br>
-        <label>Name</label> <input type="text"> <br>
-        <label>Lastname</label> <input type="text"> <br>
+        <label>Name</label> <input type="text" id="name"> <br>
+        <label>Lastname</label> <input type="text" id="lastname"> <br>
         <label>Country</label> 
             <select name="country" id="country">
                 <option value="PAR">Paraguay (PAR)</option>
@@ -28,26 +28,26 @@
         <label>Weight class</label> 
             <select name="weight" id="weight">
                 <!-- Male weight classes -->
-                <option value="60">-60Kg.</option>
-                <option value="66">-66Kg.</option>
-                <option value="73">-73Kg.</option>
-                <option value="81">-81Kg.</option>
-                <option value="90">-90Kg.</option>
-                <option value="100">-100Kg.</option>
-                <option value="+100">+100Kg.</option>
+                <option value="-60Kg.">-60Kg.</option>
+                <option value="-66Kg.">-66Kg.</option>
+                <option value="-73Kg.">-73Kg.</option>
+                <option value="-81Kg.">-81Kg.</option>
+                <option value="-90Kg.">-90Kg.</option>
+                <option value="-100Kg.">-100Kg.</option>
+                <option value="+100Kg.">+100Kg.</option>
 
                 <!-- Female weight classes -->
-                <option value="48">-48Kg.</option>
-                <option value="52">-52Kg.</option>
-                <option value="57">-57Kg.</option>
-                <option value="63">-63Kg.</option>
-                <option value="70">-70Kg.</option>
-                <option value="78">-78Kg.</option>
-                <option value="+78">+78Kg.</option>
+                <option value="-48Kg.">-48Kg.</option>
+                <option value="-52Kg.">-52Kg.</option>
+                <option value="-57Kg.">-57Kg.</option>
+                <option value="-63Kg.">-63Kg.</option>
+                <option value="-70Kg.">-70Kg.</option>
+                <option value="-78Kg.">-78Kg.</option>
+                <option value="+78Kg.">+78Kg.</option>
             </select>
         <br>
-        <label>Birthdate</label> <input type="date"> <br>
-        <button>Save</button>
+        <label>Birthdate</label> <input type="date" id="bdate"> <br>
+        <button onclick="save()">Save</button>
     </div>
 
     <div id="list">
@@ -62,10 +62,9 @@
                 <th>Weight class</th>
                 <th>Birthdate</th>
                 <th>Age class</th>
-                <th>Added</th>
                 <th>Modified</th>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td>Example</td>
                 <td>Example</td>
                 <td>Example</td>
@@ -74,8 +73,7 @@
                 <td>Example</td>
                 <td>Example</td>
                 <td>Example</td>
-                <td>Example</td>
-            </tr>
+            </tr> -->
         </table>
     </div>
 
