@@ -1,6 +1,7 @@
 let idCounter = 0;
 
 function clearInputs() {
+    document.getElementById("hiddenId").value = '';
     document.getElementById("name").value = '';
     document.getElementById("lastname").value = '';
     document.getElementById("country").value = '';
@@ -54,7 +55,39 @@ function deleteById(idToDelete) {
     trToDelete.remove();
 }
 
+function editById(idToEdit) {
+    const trToEdit = document.getElementById(idToEdit.toString());
+
+    let judoka = {
+        id: parseInt(trToEdit.childNodes[1].innerText),
+        gender: trToEdit.childNodes[3].innerText,
+        name: trToEdit.childNodes[5].innerText,
+        lastname: trToEdit.childNodes[7].innerText,
+        country: trToEdit.childNodes[9].innerText,
+        weight: trToEdit.childNodes[11].innerText,
+        bdate: trToEdit.childNodes[13].innerText,
+    }
+
+    deleteById(idToEdit);
+
+    document.getElementById("hiddenId").value = judoka.id.toString();
+    document.getElementById("name").value = judoka.name;
+    document.getElementById("lastname").value = judoka.lastname;
+    document.getElementById("country").value = judoka.country;
+    document.getElementById("weight").value = judoka.weight;
+    document.getElementById("bdate").value = judoka.bdate;
+
+    if (judoka.gender === "male") {
+        document.getElementById("maleRadio").checked = true;
+        document.getElementById("femaleRadio").checked = false;
+    } else {
+        document.getElementById("maleRadio").checked = false;
+        document.getElementById("femaleRadio").checked = true;
+    }
+}
+
 function save() {
+    const hiddenId = document.getElementById("hiddenId");
     const name = document.getElementById("name");
     const lastname = document.getElementById("lastname");
     const country = document.getElementById("country");
@@ -66,8 +99,14 @@ function save() {
     try {
         const gender = document.querySelector('input[name="gender"]:checked').value;
 
+        if (hiddenId.value === "") {
+            id = ++idCounter;
+        } else {
+            id = hiddenId.value;
+        }
+
         let judoka = {
-            id: ++idCounter,
+            id: id,
             gender: gender,
             name: name.value.trim(),
             lastname: lastname.value.trim(),
@@ -92,7 +131,10 @@ function save() {
                 <td>${judoka.bdate}</td>
                 <td>${judoka.ageClass}</td>
                 <td>${judoka.modified}</td>
-                <td><button onclick="deleteById(${judoka.id})">Delete</button></td>
+                <td>
+                    <button onclick="deleteById(${judoka.id})">Delete</button>
+                    <button onclick="editById(${judoka.id})">Edit</button>
+                </td>
             </tr>
         `;
 
