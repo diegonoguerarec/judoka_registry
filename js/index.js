@@ -35,8 +35,6 @@ function checkInput(judoka) {
 }
 
 function getAgeClass(bdate) {
-    console.log(typeof bdate);
-
     let birthYear = new Date(bdate).getFullYear();
     let actualYear = new Date().getFullYear()
 
@@ -49,6 +47,11 @@ function getAgeClass(bdate) {
     } else {
         return "Master";
     }
+}
+
+function deleteById(idToDelete) {
+    const trToDelete = document.getElementById(idToDelete.toString());
+    trToDelete.remove();
 }
 
 function save() {
@@ -79,7 +82,7 @@ function save() {
         judoka.ageClass = getAgeClass(judoka.bdate);
 
         table.innerHTML += `
-            <tr>
+            <tr id="${judoka.id}">
                 <td>${judoka.id}</td>
                 <td>${judoka.gender}</td>
                 <td>${judoka.name}</td>
@@ -89,12 +92,14 @@ function save() {
                 <td>${judoka.bdate}</td>
                 <td>${judoka.ageClass}</td>
                 <td>${judoka.modified}</td>
+                <td><button onclick="deleteById(${judoka.id})">Delete</button></td>
             </tr>
         `;
 
-        console.log(judoka);
+        //console.log(judoka);
         clearInputs();
     } catch (error) {
         console.error(error);
+        alert(error);
     }
 }
