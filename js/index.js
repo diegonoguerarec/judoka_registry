@@ -1,4 +1,4 @@
-console.log("Hello world");
+let idCounter = 0;
 
 function clearInputs() {
     document.getElementById("name").value = '';
@@ -11,6 +11,8 @@ function clearInputs() {
 }
 
 function checkInput(judoka) {
+
+    // Check for empty or brank inputs
     if (judoka.name === '') {
         throw new Error("Name can not be empty");
     }
@@ -32,6 +34,23 @@ function checkInput(judoka) {
     }
 }
 
+function getAgeClass(bdate) {
+    console.log(typeof bdate);
+
+    let birthYear = new Date(bdate).getFullYear();
+    let actualYear = new Date().getFullYear()
+
+    if (actualYear - birthYear < 18) {
+        return "Cadet";
+    } else if (actualYear - birthYear < 21) {
+        return "Junior";
+    } else if (actualYear - birthYear < 31) {
+        return "Senior"
+    } else {
+        return "Master";
+    }
+}
+
 function save() {
     const name = document.getElementById("name");
     const lastname = document.getElementById("lastname");
@@ -45,6 +64,7 @@ function save() {
         const gender = document.querySelector('input[name="gender"]:checked').value;
 
         let judoka = {
+            id: ++idCounter,
             gender: gender,
             name: name.value.trim(),
             lastname: lastname.value.trim(),
@@ -56,15 +76,18 @@ function save() {
 
         checkInput(judoka);
 
+        judoka.ageClass = getAgeClass(judoka.bdate);
+
         table.innerHTML += `
             <tr>
+                <td>${judoka.id}</td>
                 <td>${judoka.gender}</td>
                 <td>${judoka.name}</td>
                 <td>${judoka.lastname}</td>
                 <td>${judoka.country}</td>
                 <td>${judoka.weight}</td>
                 <td>${judoka.bdate}</td>
-                <td>Example</td>
+                <td>${judoka.ageClass}</td>
                 <td>${judoka.modified}</td>
             </tr>
         `;
