@@ -6,7 +6,79 @@
     <title>Judoka Register</title>
 </head>
 <body>
-    <p>Hello world</p>
+    <h1>Judoka Registry</h1>
+
+    <div id="form">
+        <h2>Judoka Information</h2>
+        <label>Gender</label> 
+            Male <input type="radio" name="gender" value="male" id="maleRadio"> 
+            Female <input type="radio" name="gender" value="female" id="femaleRadio"> 
+        <br>
+        <label>Name</label> <input type="text" id="name"> <br>
+        <label>Lastname</label> <input type="text" id="lastname"> <br>
+        <label>Country</label> 
+            <select name="country" id="country">
+                <option value="PAR">Paraguay (PAR)</option>
+                <option value="ARG">Argentina (ARG)</option>
+                <option value="BRA">Brazil (BRA)</option>
+                <option value="URU">Uruguay (URU)</option>
+                <option value="CHI">Chile (CHI)</option>
+            </select>
+        <br>
+        <label>Weight class</label> 
+            <select name="weight" id="weight">
+                <!-- Male weight classes -->
+                <option value="-60Kg.">-60Kg.</option>
+                <option value="-66Kg.">-66Kg.</option>
+                <option value="-73Kg.">-73Kg.</option>
+                <option value="-81Kg.">-81Kg.</option>
+                <option value="-90Kg.">-90Kg.</option>
+                <option value="-100Kg.">-100Kg.</option>
+                <option value="+100Kg.">+100Kg.</option>
+
+                <!-- Female weight classes -->
+                <option value="-48Kg.">-48Kg.</option>
+                <option value="-52Kg.">-52Kg.</option>
+                <option value="-57Kg.">-57Kg.</option>
+                <option value="-63Kg.">-63Kg.</option>
+                <option value="-70Kg.">-70Kg.</option>
+                <option value="-78Kg.">-78Kg.</option>
+                <option value="+78Kg.">+78Kg.</option>
+            </select>
+        <br>
+        <label>Birthdate</label> <input type="date" id="bdate"> <br>
+        <button onclick="save()">Save</button>
+    </div>
+
+    <div id="list">
+        <h2>Judoka List</h2>
+
+        <table id="table">
+            <tr>
+                <th>ID</th>
+                <th>Gender</th>
+                <th>Name</th>
+                <th>Lastname</th>
+                <th>Country</th>
+                <th>Weight class</th>
+                <th>Birthdate</th>
+                <th>Age class</th>
+                <th>Modified</th>
+                <th>Actions</th>
+            </tr>
+            <!-- <tr>
+                <td>Example</td>
+                <td>Example</td>
+                <td>Example</td>
+                <td>Example</td>
+                <td>Example</td>
+                <td>Example</td>
+                <td>Example</td>
+                <td>Example</td>
+            </tr> -->
+        </table>
+    </div>
+
     <script src="js/index.js""></script>
 </body>
 </html>
